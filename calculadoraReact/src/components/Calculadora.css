@@ -1,0 +1,29 @@
+main {
+    background-color: var(--fondo-calculadora);
+    aspect-ratio: 9/16; /*mantiene una proporcion de pantalla del elemento que quieres modificar*/
+    border-radius: 1rem;
+    height: 90%;
+    min-height: 600px;
+    box-shadow: var(--box-shadow);
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /*organizacion de columnas de 4 colum * 1 fraccion*/
+    gap: 1rem; /*margin*/
+}
+
+input {
+    grid-column: span 4;  /*coloca cada input uno debajo del otro en formato de 4 columnas*/
+    text-align: right; /*el texto lo situa en el lado derecho */
+    border: none;
+    background-color: var(--fondo-calculadora);
+    padding: 0 .5rem /*padding para el texto del resultado*/;
+}
+
+input.resultado {
+    color: var(--secundario);
+    font-size: 3rem;
+}
+
+input.display {
+    font-size: 4rem;
+}

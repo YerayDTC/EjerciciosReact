@@ -4,7 +4,18 @@
     Ubuntu, Cantarell, 'Open Sans',
     'Helvetica Neue', sans-serif;
 
-    background-color: #17171c;/*para dar color oscuro*/
+    /*variables de colores*/
+    --fondo: #17171C; /*#f1f2f3*/
+    --fondo-calculadora: #f1f2f3; /*#17171C*/
+    --texto: #000000; /*#ffffff*/
+    --primario: #4b5efc; /*#4b5efc*/
+    --secundario: #c8c9cf; /*#4e505f*/
+    --terciario: #ffffff; /*#2r2f38*/
+    --box-shadow: 00 0 50px  rgba(0, 0, 0, 0.20);
+
+  background-color: var(--fondo);
+  color: var(--texto);
+  
 
 }
 
@@ -16,11 +27,6 @@
 
 #root {
   height: 100vh;
-  display : grid;
+  display: grid;
   place-items: center;
-  text-align: center;
-}
-
-main {
-  background-color: #f1f2f3;
 }

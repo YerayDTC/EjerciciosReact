@@ -11,19 +11,20 @@ main {
     gap: 1rem; /*margin*/
 }
 
-input {
-    grid-column: span 4;  /*coloca cada input uno debajo del otro en formato de 4 columnas*/
+span {
+    grid-column: span 4;  /*coloca cada span uno debajo del otro en formato de 4 columnas*/
     text-align: right; /*el texto lo situa en el lado derecho */
-    border: none;
-    background-color: var(--fondo-calculadora);
     padding: 0 .5rem /*padding para el texto del resultado*/;
 }
 
-input.resultado {
+span.resultado {
     color: var(--secundario);
     font-size: 3rem;
+    height: 3rem;
 }
 
-input.display {
+span.display {
     font-size: 4rem;
+    height: 4rem;
+    padding: 0;
 }

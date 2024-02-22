@@ -17,10 +17,11 @@ const Calculadora = () => {
 
     if (data.operacion.length >= 10) return; //limmita el maximo de digitos en el span de operacion
     if (valor === "+/-" && data.operacion === "") return; // si se pulsa la tecla +/- sin haber numeros escritos no se escribe esa tecla
+    if(valor === "%" && data.operacion.includes("%")) return; // Esto impide que haya mas de un signo de %
 
     if(data.operacion.includes("Error")) {
       setData({...data, operacion: valor})
-    } else if(data.resultado !== "" && data.operacion === "" && esOperacion) {
+    } else if(data.resultado !== "" && data.operacion === "" && esOperacion) { //toma el valor del resultado en caso de que exista con el signo de la operacion que se elija
       setData({...data, operacion: `${data.resultado}` + valor})
     
     } else if (valor === "+/-" && data.operacion !== "") {
@@ -51,7 +52,14 @@ const Calculadora = () => {
 
   const resultado = () => {
     try {
-      const resultado = eval(data.operacion); //eval evalua una expresion para obtener un resultado (documentacion mdn)
+      let resultado = "";
+
+      if(data.operacion.includes("%")) {
+        const valores = data.operacion.split("%");// usa el % como separador. Ejemplo [25%100]
+        resultado = eval(`${valores[1]}*(${valores[0]}/100)`) //evalua la ecuacion de la posicion [1] de valores * la (posicion [0]/100)
+      } else {
+        resultado = eval(data.operacion); //eval evalua una expresion para obtener un resultado (documentacion mdn)
+      }
 
       setData({ ...data, resultado, operacion: ""});
     } catch (error) {
